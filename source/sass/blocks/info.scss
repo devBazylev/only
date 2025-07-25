@@ -1,46 +1,195 @@
 .info {
   position: relative;
-  z-index: 0;
 
   &__slider {
-    position: relative;
 
+
+    @include vp-1023 {
+
+    }
+  }
+
+  &__title {
+
+
+    @include vp-1023 {
+
+    }
+  }
+
+  &__cont {
+
+
+    @include vp-1023 {
+
+    }
+  }
+
+  &__min {
+
+
+    @include vp-1023 {
+
+    }
+  }
+
+  &__max {
+
+
+    @include vp-1023 {
+
+    }
   }
 
   &__slide {
-    position: relative;
-    max-width: 1920px;
+
+
+    @include vp-1023 {
+
+    }
   }
 
+  &__year {
 
-  &__btn--prev {
-    left: 54px;
+
+    @include vp-1023 {
+
+    }
   }
 
-  &__btn--next {
-    right: 48px;
+  &__text {
+
+
+    @include vp-1023 {
+
+    }
   }
 
-  & &__pag {
+  &__pag {
 
 
-    @include vp-1439 {
+    @include vp-1023 {
 
     }
   }
 
   &__bullet {
-    display: block;
-    width: 6px;
-    height: 6px;
-    margin: 0;
-    background-color: $color-default-white;
-    border-radius: 50%;
-    opacity: 0.2;
-    cursor: pointer;
+
+
+    @include vp-1023 {
+
+    }
   }
 
   &__bullet--active {
-    opacity: 1;
+
+
+    @include vp-1023 {
+
+    }
+  }
+
+  &__wrap {
+
+
+    @include vp-1023 {
+
+    }
+  }
+
+  &__box {
+
+
+    @include vp-1023 {
+
+    }
+  }
+
+  &__frac {
+
+
+    @include vp-1023 {
+
+    }
+  }
+
+  &__frac--min {
+
+
+    @include vp-1023 {
+
+    }
+  }
+
+  &__frac--max {
+
+
+    @include vp-1023 {
+
+    }
+  }
+
+  &__bag {
+
+
+    @include vp-1023 {
+
+    }
+  }
+
+  &__btn {
+
+
+    @include vp-1023 {
+
+    }
+  }
+
+  &__btn--prev {
+
+
+    @include vp-1023 {
+
+    }
+  }
+
+  &__btn--next {
+
+
+    @include vp-1023 {
+
+    }
+  }
+
+  &__btn--disabled {
+
+
+    @include vp-1023 {
+
+    }
+  }
+
+  &__twin--prev {
+
+
+    @include vp-1023 {
+
+    }
+  }
+
+  &__twin--next {
+
+
+    @include vp-1023 {
+
+    }
+  }
+
+  &__twin--disabled {
+
+
+    @include vp-1023 {
+
+    }
   }
 }

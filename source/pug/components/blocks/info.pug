@@ -1,33 +1,37 @@
 mixin info()
+  - const title = "Исторические даты";
+  - const minYear = "2015";
+  - const maxYear = "2022";
   -
     const data = [
-      {title: "Краски", text: "Ицвет"},
-      {title: "Краски", text: "Ицвет"},
-      {title: "Краски", text: "Ицвет"},
-      {title: "Краски", text: "Ицвет"},
-      {title: "Краски", text: "Ицвет"},
-      {title: "Краски", text: "Ицвет"},
+      {id: "1", min: "2004", max: "2009", text: "Facebook был запущен как социальная сеть для студентов"},
+      {id: "2", min: "2008", max: "2013", text: "Первый коммерческий запуск космического корабля SpaceX Falcon 1"},
+      {id: "3", min: "2010", max: "2017", text: "iPad Apple был представлен и&#160;начал массовое производство"},
+      {id: "4", min: "2015", max: "2022", text: "13&#160;сентября&#160;&#8212; частное солнечное затмение, видимое в&#160;Южной Африке и&#160;части Антарктиды"},
+      {id: "5", min: "2016", max: "2023", text: "Телескоп &#171;Хаббл&#187; обнаружил самую удалённую из&#160;всех обнаруженных галактик, получившую обозначение GN-z11"},
+      {id: "6", min: "2017", max: "2024", text: "Компания Tesla официально представила первый в&#160;мире электрический грузовик Tesla Semi"},
+
     ]
   section.info
-    h1.visually-hidden!= "Огромное разнообразие красок"
-    ul.info__list
-      each item in data2
-        li.info__item!= item.text
+    h1.visually-hidden!= "Тестовое задание для компании Only"
     .info__slider.swiper
+      h2.info__title!= title
+      .info__cont
+        .info__min!= minYear
+        .info__max!= maxYear
       .info__wrapper.swiper-wrapper
         each item in data
           .info__slide.swiper-slide
-            .info__pic
-              +pic("content", item.name, "jpg", item.width, item.height, item.altText)
-            .info__wrap
-              h2.infot__subtitle!= item.title
-              p.info__text!= item.text
-      .info__pag.swiper-pagination
-      .info__btn.info__btn--prev.btn
-        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" fill="none">
-          <path d="M50 20L30 40L50 60" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      .info__btn.info__btn--next.btn
-        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" fill="none">
-          <path d="M30 60L50 40L30 20" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+            .info__year!= item.min
+            p.info__text!= item.text
+      .info__pag
+      .info__wrap
+        .info__box
+          span.info__frac.info__frac--min!= "01"
+          span!= "/"
+          span.info__frac.info__frac--max!= `0${data.length}`
+        .info__bag
+          +btn().info__btn.info__btn--prev
+          +btn().info__btn.info__btn--next
+      +btn().info__twin.info__twin--prev
+      +btn().info__twin.info__twin--next

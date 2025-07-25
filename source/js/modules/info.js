@@ -1,9 +1,9 @@
 import Swiper from 'swiper';
-import {Autoplay, Navigation, Pagination} from 'swiper/modules';
+import {Navigation, Pagination} from 'swiper/modules';
 
 const initInfo = () => {
   new Swiper('.info__slider', {
-    modules: [Autoplay, Pagination, Navigation],
+    modules: [Pagination, Navigation],
     observer: true,
     slidesPerView: 'auto',
     watchSlidesProgress: true,
@@ -15,6 +15,7 @@ const initInfo = () => {
     navigation: {
       prevEl: '.info__btn--prev',
       nextEl: '.info__btn--next',
+      disabledClass: 'info__btn--disabled',
     },
 
     pagination: {
@@ -23,11 +24,6 @@ const initInfo = () => {
       bulletClass: 'info__bullet',
       bulletActiveClass: 'info__bullet--active',
     },
-
-    // autoplay: {
-    //   delay: 3000,
-    //   disableOnInteraction: false,
-    // },
 
     breakpoints: {
       1024: {
