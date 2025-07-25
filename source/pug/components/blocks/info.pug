@@ -1,0 +1,33 @@
+mixin info()
+  -
+    const data = [
+      {title: "Краски", text: "Ицвет"},
+      {title: "Краски", text: "Ицвет"},
+      {title: "Краски", text: "Ицвет"},
+      {title: "Краски", text: "Ицвет"},
+      {title: "Краски", text: "Ицвет"},
+      {title: "Краски", text: "Ицвет"},
+    ]
+  section.info
+    h1.visually-hidden!= "Огромное разнообразие красок"
+    ul.info__list
+      each item in data2
+        li.info__item!= item.text
+    .info__slider.swiper
+      .info__wrapper.swiper-wrapper
+        each item in data
+          .info__slide.swiper-slide
+            .info__pic
+              +pic("content", item.name, "jpg", item.width, item.height, item.altText)
+            .info__wrap
+              h2.infot__subtitle!= item.title
+              p.info__text!= item.text
+      .info__pag.swiper-pagination
+      .info__btn.info__btn--prev.btn
+        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" fill="none">
+          <path d="M50 20L30 40L50 60" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      .info__btn.info__btn--next.btn
+        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" fill="none">
+          <path d="M30 60L50 40L30 20" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>

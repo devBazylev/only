@@ -1,0 +1,46 @@
+.info {
+  position: relative;
+  z-index: 0;
+
+  &__slider {
+    position: relative;
+
+  }
+
+  &__slide {
+    position: relative;
+    max-width: 1920px;
+  }
+
+
+  &__btn--prev {
+    left: 54px;
+  }
+
+  &__btn--next {
+    right: 48px;
+  }
+
+  & &__pag {
+
+
+    @include vp-1439 {
+
+    }
+  }
+
+  &__bullet {
+    display: block;
+    width: 6px;
+    height: 6px;
+    margin: 0;
+    background-color: $color-default-white;
+    border-radius: 50%;
+    opacity: 0.2;
+    cursor: pointer;
+  }
+
+  &__bullet--active {
+    opacity: 1;
+  }
+}
