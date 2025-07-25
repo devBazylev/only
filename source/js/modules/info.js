@@ -11,6 +11,7 @@ const initInfo = () => {
     updateOnWindowResize: true,
     spaceBetween: 25,
     centeredSlides: true,
+    slideActiveClass: 'info__slide--active',
 
     navigation: {
       prevEl: '.info__btn--prev',

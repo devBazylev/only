@@ -10,7 +10,6 @@ mixin info()
       {id: "4", min: "2015", max: "2022", text: "13&#160;сентября&#160;&#8212; частное солнечное затмение, видимое в&#160;Южной Африке и&#160;части Антарктиды"},
       {id: "5", min: "2016", max: "2023", text: "Телескоп &#171;Хаббл&#187; обнаружил самую удалённую из&#160;всех обнаруженных галактик, получившую обозначение GN-z11"},
       {id: "6", min: "2017", max: "2024", text: "Компания Tesla официально представила первый в&#160;мире электрический грузовик Tesla Semi"},
-
     ]
   section.info
     h1.visually-hidden!= "Тестовое задание для компании Only"
@@ -21,7 +20,7 @@ mixin info()
         .info__max!= maxYear
       .info__wrapper.swiper-wrapper
         each item in data
-          .info__slide.swiper-slide
+          .info__slide.swiper-slide(data-min=`${item.min}`, data-max=`${item.max}`)
             .info__year!= item.min
             p.info__text!= item.text
       .info__pag
