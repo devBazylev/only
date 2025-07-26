@@ -279,10 +279,6 @@
     opacity: 0;
     max-height: 0;
     overflow: hidden;
-
-    @include vp-1023 {
-      margin: 0 0 76px;
-    }
   }
 
   &__cont--active {
@@ -291,6 +287,10 @@
     top: 0;
     transition: opacity $trans-1000;
     overflow: visible;
+
+    @include vp-1023 {
+      margin: 0 0 76px;
+    }
   }
 
   &__twin {
