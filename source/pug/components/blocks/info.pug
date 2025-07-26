@@ -1,5 +1,5 @@
 mixin info()
-  - const title = "Исторические даты";
+  - const title = "Исторические<br> даты";
   - const minYear = "2015";
   - const maxYear = "2022";
   -
@@ -13,24 +13,31 @@ mixin info()
     ]
   section.info
     h1.visually-hidden!= "Тестовое задание для компании Only"
-    .info__slider.swiper
+    .info__container
       h2.info__title!= title
       .info__cont
-        .info__min!= minYear
-        .info__max!= maxYear
-      .info__wrapper.swiper-wrapper
-        each item in data
-          .info__slide.swiper-slide(data-min=`${item.min}`, data-max=`${item.max}`)
-            .info__year!= item.min
-            p.info__text!= item.text
-      .info__pag
-      .info__wrap
-        .info__box
-          span.info__frac.info__frac--min!= "01"
-          span!= "/"
-          span.info__frac.info__frac--max!= `0${data.length}`
-        .info__bag
-          +btn().info__btn.info__btn--prev
-          +btn().info__btn.info__btn--next
+          .info__year.info__year--min!= minYear
+          .info__year.info__year--max!= maxYear
+          .info__pag
+      .info__slider.swiper
+        .info__wrapper.swiper-wrapper
+          each item in data
+            .info__slide.swiper-slide(data-min=`${item.min}`, data-max=`${item.max}`)
+              .info__bold!= item.min
+              p.info__text!= item.text
+        .info__wrap
+          .info__box
+            span.info__frac.info__frac--min!= "01"
+            span!= "/"
+            span.info__frac.info__frac--max!= `0${data.length}`
+          .info__bag
+            +btn().info__btn.info__btn--prev
+              <svg class="info__arrow" width="10" height="14" viewBox="0 0 10 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.49988 0.750001L2.24988 7L8.49988 13.25" stroke="#42567A" stroke-width="2"/>
+              </svg>
+            +btn().info__btn.info__btn--next
+              <svg class="info__arrow" width="10" height="14" viewBox="0 0 10 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.50012 0.750001L7.75012 7L1.50012 13.25" stroke="#42567A" stroke-width="2"/>
+              </svg>
       +btn().info__twin.info__twin--prev
       +btn().info__twin.info__twin--next

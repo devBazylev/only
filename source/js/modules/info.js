@@ -10,7 +10,6 @@ const initInfo = () => {
     resizeObserver: true,
     updateOnWindowResize: true,
     spaceBetween: 25,
-    centeredSlides: true,
     slideActiveClass: 'info__slide--active',
 
     navigation: {

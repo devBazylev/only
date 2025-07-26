@@ -90,44 +90,6 @@
   }
 }
 
-@mixin flex($direct: column, $wrap: nowrap) {
-  display: flex;
-  flex-direction: $direct;
-  flex-wrap: $wrap;
-
-  @content;
-}
-
-@mixin btn($direct: row, $jus: center, $ali: center, $wrap: wrap) {
-  display: inline-flex;
-  flex-direction: $direct;
-  justify-content: $jus;
-  align-items: $ali;
-  flex-wrap: $wrap;
-  width: fit-content;
-  height: fit-content;
-  padding: 0;
-  border: none;
-  text-decoration: none;
-  cursor: pointer;
-
-  @content;
-}
-
-@mixin grid($first-column: 1fr, $second-column: null, $third-column: null, $fourth-column: null, $fifth-column: null, $sixth-column: null, $seventh-column: null, $eighth-column: null, $nineth-column: null, $tenth-column: null, $r: null) {
-  display: grid;
-
-  @if $r {
-    grid-template-columns: repeat(auto-fit, minmax($first-column, 1fr));
-  }
-
-  @else {
-    grid-template-columns: $first-column $second-column $third-column $fourth-column $fifth-column $sixth-column $seventh-column $eighth-column $nineth-column $tenth-column;
-  }
-
-  @content;
-}
-
 @mixin pse($content: "", $display: block) {
   content: $content;
   display: $display;
@@ -135,22 +97,20 @@
   @content;
 }
 
-@mixin svg($name: null) {
+@mixin svg($name: null, $type: "background", $color: null) {
   @include pse;
 
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
+  #{$type}-repeat: no-repeat;
+  #{$type}-position: center;
+  #{$type}-size: contain;
+
+  @if $name != null {
+    #{$type}-image: url("../img/svg/#{$name}.svg");
+  }
+
+  @if $color {
+    background-color: $color;
+  }
 
   @content;
-
-  @if $name {
-    background-image: url("img/svg/#{$name}.svg");
-  }
-}
-
-@mixin vp-tablet {
-  @media (min-width: $vp-768) and (max-width: ($vp-1024 - 1px)) {
-    @content;
-  }
 }

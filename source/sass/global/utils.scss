@@ -1,14 +1,19 @@
 .wrapper {
   position: relative;
-
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  width: 75vw;
+  min-width: 320px;
+  max-width: 1920px;
   margin: 0 auto;
-  min-width: 375px;
+  border-left: 1px solid $color-chambray-trans-10;
+  border-right: 1px solid $color-chambray-trans-10;
 
   @include vp-1023 {
-    background-color: $color-default-white;
+    width: 100vw;
+    border-left: unset;
+    border-right: unset;
   }
 
   .header,
