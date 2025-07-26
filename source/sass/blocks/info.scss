@@ -146,21 +146,21 @@
     }
   }
 
-  &__bullet {
+  // &__bullet {
 
 
-    @include vp-1023 {
+  //   @include vp-1023 {
 
-    }
-  }
+  //   }
+  // }
 
-  &__bullet--active {
+  // &__bullet--active {
 
 
-    @include vp-1023 {
+  //   @include vp-1023 {
 
-    }
-  }
+  //   }
+  // }
 
   &__wrap {
     display: flex;
@@ -254,7 +254,7 @@
 
   &__bold {
     color: $color-royal-blue;
-    font-family: "Bebas Neue";
+    font-family: "Bebas Neue", sans-serif;
     font-size: clamp(16px, 1.3vw, 25px);
     font-style: normal;
     font-weight: 400;
@@ -302,7 +302,7 @@
     border-radius: 50%;
     background-color: $color-default-white;
     transition: opacity $trans-default;
-    filter: drop-shadow(0 0 15px rgba(56, 119, 238, 0.10));
+    filter: drop-shadow(0 0 15px rgba(56, 119, 238, 0.1));
     z-index: 1;
 
     @include vp-1023 {
