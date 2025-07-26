@@ -1,36 +1,32 @@
 import Swiper from 'swiper';
-import {Navigation, Pagination} from 'swiper/modules';
+import { Navigation } from 'swiper/modules';
 
 const initInfo = () => {
-  new Swiper('.info__slider', {
-    modules: [Pagination, Navigation],
-    observer: true,
-    slidesPerView: 'auto',
-    watchSlidesProgress: true,
-    resizeObserver: true,
-    updateOnWindowResize: true,
-    spaceBetween: 25,
-    slideActiveClass: 'info__slide--active',
+  const sliders = document.querySelectorAll('.info__slider');
+  sliders.forEach((slider) => {
+    const cont = slider.closest('.info__cont');
+    new Swiper(slider, {
+      modules: [Navigation],
+      observer: true,
+      resizeObserver: true,
+      slidesPerView: 'auto',
+      updateOnWindowResize: true,
+      spaceBetween: 25,
+      slideActiveClass: 'info__slide--active',
 
-    navigation: {
-      prevEl: '.info__btn--prev',
-      nextEl: '.info__btn--next',
-      disabledClass: 'info__btn--disabled',
-    },
-
-    pagination: {
-      el: '.info__pag',
-      clickable: true,
-      bulletClass: 'info__bullet',
-      bulletActiveClass: 'info__bullet--active',
-    },
-
-    breakpoints: {
-      1024: {
-        spaceBetween: 80,
+      navigation: {
+        prevEl: cont.querySelector('.info__twin--prev'),
+        nextEl: cont.querySelector('.info__twin--next'),
+        disabledClass: 'info__twin--disabled',
       },
-    },
+
+      breakpoints: {
+        1024: {
+          spaceBetween: 80,
+        },
+      },
+    });
   });
 };
 
-export {initInfo};
+export { initInfo };
