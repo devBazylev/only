@@ -209,9 +209,9 @@
     }
   }
 
-  &__btn--disabled {
+  &__btn:disabled {
     opacity: 0.5;
-    pointer-events: none;
+    cursor: not-allowed;
   }
 
   &__arrow {
@@ -276,15 +276,26 @@
 
   &__cont {
     position: relative;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
 
     @include vp-1023 {
       margin: 0 0 76px;
     }
   }
 
+  &__cont--active {
+    opacity: 1;
+    max-height: 1000vh;
+    top: 0;
+    transition: opacity $trans-1000;
+    overflow: visible;
+  }
+
   &__twin {
     position: absolute;
-    top: 31%;
+    top: 42px;
     width: 40px;
     height: 40px;
     flex-shrink: 0;

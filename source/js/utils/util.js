@@ -1,15 +1,14 @@
 const desk = window.matchMedia('(min-width: 1024px) and (max-width: 5000px)');
 
-const cloneSlides = (parent, elems, array) => {
-  elems.forEach((elem) => {
-    const clone = elem.cloneNode(true);
-    clone.setAttribute('aria-hidden', true);
-    array.push(clone);
-    parent.appendChild(clone);
-  });
+const debounce = (callback, timeoutDelay = 300) => {
+  let timeoutId;
+  return (...rest) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => callback.apply(this, rest), timeoutDelay);
+  };
 };
 
 export {
   desk,
-  cloneSlides,
+  debounce,
 };

@@ -1,9 +1,9 @@
 mixin info()
-  - const minYear = "2015";
-  - const maxYear = "2022";
+  - const minYear = "1950";
+  - const maxYear = "1961";
   -
     const data = [
-      { title: 'Технологии', items: [
+      { title: 'Технологии', active: true, items: [
         { date: 1950, text: 'Появление транзистора, что стало началом новой эры в&#160;электронике' },
         { date: 1955, text: 'Первый спутник СССР — Спутник-1, запущенный в&#160;космос' },
         { date: 1958, text: 'Создание NASA, американского космического агентства' },
@@ -56,9 +56,9 @@ mixin info()
     h1.info__title!= "Исторические<br> даты"
     .info__frame
       .info__case
-          .info__year.info__year--min!= minYear
-          .info__year.info__year--max!= maxYear
-          .info__pag
+        .info__year.info__year--min!= minYear
+        .info__year.info__year--max!= maxYear
+        .info__pag
       .info__wrap
         .info__box
           span.info__frac.info__frac--min!= "01"
@@ -75,18 +75,19 @@ mixin info()
             </svg>
       each slider in data
         - const i = data.indexOf(slider)
-        .info__cont(class=`info__cont--${i + 1}`)
-          .info__slider.swiper
-            .info__wrapper.swiper-wrapper
-              each slide in slider.items
-                .info__slide.swiper-slide
-                  .info__bold!= slide.date
-                  p.info__text!= slide.text
-          +btn().info__twin.info__twin--prev
-            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="12" viewBox="0 0 8 12" fill="none">
-              <path d="M7 1L2 6L7 11" stroke="#3877ee" stroke-width="2"/>
-            </svg>
-          +btn().info__twin.info__twin--next
-            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="12" viewBox="0 0 8 12" fill="none">
-              <path d="M1 1L6 6L1 11" stroke="#3877ee" stroke-width="2"/>
-            </svg>
+        - const isActive = slider.active ? 'info__cont--active' : ''
+          .info__cont(class=`info__cont--${i} ${isActive}`, data-min=`${slider.items[0].date}`, data-max=`${slider.items[slider.items.length - 1].date}`)
+            .info__slider.swiper
+              .info__wrapper.swiper-wrapper
+                each slide in slider.items
+                  .info__slide.swiper-slide
+                    .info__bold!= slide.date
+                    p.info__text!= slide.text
+            +btn().info__twin.info__twin--prev
+              <svg xmlns="http://www.w3.org/2000/svg" width="8" height="12" viewBox="0 0 8 12" fill="none">
+                <path d="M7 1L2 6L7 11" stroke="#3877ee" stroke-width="2"/>
+              </svg>
+            +btn().info__twin.info__twin--next
+              <svg xmlns="http://www.w3.org/2000/svg" width="8" height="12" viewBox="0 0 8 12" fill="none">
+                <path d="M1 1L6 6L1 11" stroke="#3877ee" stroke-width="2"/>
+              </svg>
