@@ -1,0 +1,53 @@
+// Colors
+
+// Default
+
+$color-default-black:                      #000000;
+$color-default-white:                      #ffffff;
+$color-transparent:                        rgba(255, 255, 255, 0);
+$color-accent-main:                        #2c39f2;
+$color-accent-second:                      #1d2e5b;
+
+// Project palette
+
+$color-chambray:                           #42567a;
+$color-neon-blue:                          #5d5fef;
+$color-brilliant-rose:                     #ef5da8;
+$color-royal-blue:                         #3877ee;
+$color-link-water:                         #c7cdd9;
+$color-ghost-white:                        #f4f5f9;
+
+// Project transparent palette
+
+$color-chambray-trans-10:                  rgba(66, 86, 122, 0.1);
+$color-chambray-trans-20:                  rgba(66, 86, 122, 0.2);
+$color-chambray-trans-50:                  rgba(66, 86, 122, 0.5);
+
+// Typography
+
+$fz-default:                               16px;
+$ff-rouble:                                "Rouble", "Arial", sans-serif;
+$ff-placeholder:                           "Placeholder", "Arial", sans-serif;
+$ff-ptsans:                                "PTSans", "Arial", sans-serif;
+
+// Animation
+
+$tf-default:                               ease;
+$trans-default:                            0.3s $tf-default;
+$trans-1000:                               1s $tf-default;
+
+// Viewports
+
+$vp-320:                                   320px;
+$vp-375:                                   375px;
+$vp-500:                                   500px;
+$vp-768:                                   768px;
+$vp-1024:                                  1024px;
+$vp-1280:                                  1280px;
+$vp-1440:                                  1440px;
+$vp-1920:                                  1920px;
+
+// Retina
+
+$retina-dpi:                               144dpi;
+$retina-dppx:                              1.5dppx;

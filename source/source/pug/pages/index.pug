@@ -1,0 +1,16 @@
+extends ../components/base/layout
+
+block variables
+  - const title = "Frontend test by Only"
+  - const wrapperMods = ""
+  - const hasHeader = false
+  - const headerMods = ""
+  - const hasFooter = false
+  - const footerMods = ""
+  - const currentUrl = "index.html"
+
+block main
+  main
+    +info()
+
+block modals

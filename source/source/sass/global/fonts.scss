@@ -1,0 +1,4 @@
+@import "../mixins.scss";
+@include font("PTSans", ptsans-regular, 400);
+@include font("PTSans", ptsans-bold, 700);
+@include font("Bebas Neue", bebas-neue-regular, 400);
