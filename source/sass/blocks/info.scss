@@ -145,7 +145,7 @@
 
     @include vp-1023 {
       top: unset;
-      bottom: 32px;
+      bottom: 29px;
       left: 50%;
       display: flex;
       gap: 10px;
@@ -163,10 +163,16 @@
     justify-content: center;
     width: 2.5vw;
     height: 2.5vw;
-    transition: transform $trans-default;
     transform: translate(-50%, -50%);
     border-radius: 50%;
     cursor: pointer;
+
+    @include vp-1023 {
+      position: static;
+      transform: unset;
+      width: 6px;
+      height: 6px;
+    }
   }
 
   &__bullet {
@@ -182,6 +188,8 @@
 
     @include vp-1023 {
       opacity: 0.4;
+      flex-shrink: 0;
+      border: unset;
     }
   }
 
@@ -194,14 +202,15 @@
     opacity: 1;
 
     @include vp-1023 {
-      border: 1px solid $color-chambray;
+      background-color: $color-chambray;
+      opacity: 1;
     }
   }
 
   &__count {
     display: inline-flex;
     color: $color-chambray;
-    font-size: 20px;
+    font-size: clamp(14px, 1vw , 20px);
     font-style: normal;
     font-weight: 400;
     line-height: 150%;
@@ -213,6 +222,7 @@
 
   &__sign {
     position: absolute;
+    font-size: clamp(14px, 1vw , 20px);
     left: 3.5vw;
     font-size: 20px;
     font-style: normal;

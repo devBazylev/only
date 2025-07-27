@@ -60,14 +60,8 @@ mixin info()
         .info__year.info__year--max!= maxYear
         .info__pag
           each slider, i in data
-            - const total = data.length
-            - const index = (i - 1) % total
-            - const angle = (2 * Math.PI / total) * index
-            - const radius = 13.8
-            - const x = Math.cos(angle) * radius
-            - const y = Math.sin(angle) * radius
             - const isActive = slider.active ? 'info__cover--active' : ''
-            .info__cover(class=`info__cover--${i} ${isActive}`, style=`left: calc(50% + ${x}vw); top: calc(50% + ${y}vw);`,data-id=`${i}`)
+            .info__cover(class=`info__cover--${i} ${isActive}`, data-id=`${i}`)
               +btn().info__bullet
                 span.info__count!= i + 1
               .info__sign!= slider.title
