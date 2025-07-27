@@ -136,6 +136,7 @@
     top: 58%;
     left: 51.5%;
     transform: translate(-50%, -50%);
+    transition: transform $trans-1000;
     width: 27.6vw;
     height: 27.6vw;
     flex-shrink: 0;
@@ -164,6 +165,7 @@
     width: 2.5vw;
     height: 2.5vw;
     transform: translate(-50%, -50%);
+    transition: transform $trans-1000;
     border-radius: 50%;
     cursor: pointer;
 
@@ -210,7 +212,7 @@
   &__count {
     display: inline-flex;
     color: $color-chambray;
-    font-size: clamp(14px, 1vw , 20px);
+    font-size: clamp(14px, 1vw, 20px);
     font-style: normal;
     font-weight: 400;
     line-height: 150%;
@@ -222,9 +224,8 @@
 
   &__sign {
     position: absolute;
-    font-size: clamp(14px, 1vw , 20px);
+    font-size: clamp(14px, 1vw, 20px);
     left: 3.5vw;
-    font-size: 20px;
     font-style: normal;
     font-weight: 700;
     line-height: 150%;

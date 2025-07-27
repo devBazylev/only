@@ -18,14 +18,25 @@ const initInfo = () => {
     const covers = Array.from(pag.querySelectorAll('.info__cover'));
     const bullets = pag.querySelectorAll('.info__bullet');
 
+    const total = covers.length;
     const iMax = sliders.length;
     let i = 0;
     let min = 1950;
     let max = 1961;
 
+    const spinPag = () => {
+      if (desk.matches) {
+        const rotateDeg = 360 / total * i;
+        pag.style.transform = `translate(-50%, -50%) rotate(-${rotateDeg}deg)`;
+        covers.forEach(cover => cover.style.transform = `translate(-50%, -50%) rotate(${rotateDeg}deg)`);
+      } else {
+        pag.style.transform = 'translate(-50%, -50%)';
+        covers.forEach(cover => cover.style.transform = 'translate(-50%, -50%)');
+      }
+    };
+
     const setCoord = () => {
       covers.forEach((cover, i) => {
-        const total = covers.length;
         const index = (i - 1) % total;
         const angle = (2 * Math.PI / total) * index;
         const radius = 13.8;
@@ -47,6 +58,7 @@ const initInfo = () => {
       } else {
         unsetCoord();
       }
+      spinPag();
     };
 
     if (desk.matches) {
@@ -105,6 +117,7 @@ const initInfo = () => {
       frac.textContent = `0${i + 1}`;
       swapSlider();
       checkBtnStatus();
+      spinPag();
     };
 
     const onPrevDebounced = debounce(() => {
