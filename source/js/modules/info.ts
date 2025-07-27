@@ -1,5 +1,5 @@
 import { Swiper } from 'swiper';
-// import { Navigation } from 'swiper/modules';
+import { Navigation } from 'swiper/modules';
 import { debounce, desk } from '../utils/util';
 
 const initInfo = (): void => {
@@ -182,7 +182,7 @@ const initInfo = (): void => {
       const cont = slider.closest('.info__cont') as HTMLElement;
       // eslint-disable-next-line
       new Swiper(slider, {
-        // modules: [Navigation],
+        modules: [Navigation],
         observer: true,
         resizeObserver: true,
         slidesPerView: 'auto',

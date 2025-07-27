@@ -10,7 +10,7 @@ module.exports = {
   context: path.resolve(__dirname, 'source'),
   mode: 'development',
   entry: {
-    main: './js/main.ts', // указываем TypeScript файл
+    main: './js/main.ts',
     vendor: './js/vendor.js',
   },
   devtool: isDev ? 'source-map' : false,
@@ -22,7 +22,7 @@ module.exports = {
     alias: {
       'swiper': path.resolve(__dirname, 'source/js/vendor/swiper'),
     },
-    extensions: ['.js', '.ts'],
+    extensions: ['.js', '.ts', '.mjs'],
   },
   module: {
     rules: [
