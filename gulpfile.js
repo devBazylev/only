@@ -27,7 +27,6 @@ const syncServer = () => {
 
   gulp.watch('source/pug/**/*.pug', gulp.series(pug, refresh));
   gulp.watch('source/sass/**/*.{scss,sass}', streamStyles);
-   // Обновлено расширение на .ts
   gulp.watch('source/js/**/*.{ts,json}', gulp.series(compileScripts, refresh));
   // gulp.watch('source/js/**/*.{js,json}', gulp.series(compileScripts, refresh));
   gulp.watch('source/data/**/*.{js,json}', gulp.series(copy, refresh));
