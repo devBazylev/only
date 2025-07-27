@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "commonjs",
+    "outDir": "./build",
+    "strict": true
+  },
+  "include": ["source", "source/js", "source/js/utils", "source/js/modules"]
+}
