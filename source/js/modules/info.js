@@ -29,11 +29,11 @@ const initInfo = () => {
         if (min < minNew) {
           min++;
           minYear.textContent = min;
-          setTimeout(animateMin, 20);
+          setTimeout(animateMin, 10);
         } else if (min > minNew) {
           min--;
           minYear.textContent = min;
-          setTimeout(animateMin, 20);
+          setTimeout(animateMin, 10);
         }
       };
 
@@ -41,21 +41,16 @@ const initInfo = () => {
         if (max < maxNew) {
           max++;
           maxYear.textContent = max;
-          setTimeout(animateMax, 20);
+          setTimeout(animateMax, 10);
         } else if (max > maxNew) {
           max--;
           maxYear.textContent = max;
-          setTimeout(animateMax, 20);
+          setTimeout(animateMax, 10);
         }
       };
 
       animateMin();
       animateMax();
-    };
-
-    const checkBtnStatus = () => {
-      prev.disabled = i === 0;
-      next.disabled = i === iMax - 1;
     };
 
     const swapSlider = () => {
@@ -66,6 +61,11 @@ const initInfo = () => {
       });
       conts[i].classList.add('info__cont--active');
       recalcYears();
+    };
+
+    const checkBtnStatus = () => {
+      prev.disabled = i === 0;
+      next.disabled = i === iMax - 1;
     };
 
     const onPrevDebounced = debounce(() => {

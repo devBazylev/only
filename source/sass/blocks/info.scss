@@ -1,15 +1,23 @@
 .info {
   position: relative;
+  display: grid;
+  grid-template-columns: 100%;
+  gap: 4.4vw;
   padding: 8.7vw 4.2vw 104px;
   overflow: hidden;
 
   @include vp-1023 {
+    gap: 0;
     padding: 59px 20px 13px;
   }
 
   &__frame {
     display: grid;
     grid-template-columns: 100%;
+
+    &:not(:first-of-type) {
+      margin: 10vw 0 0;
+    }
   }
 
   &__title {
@@ -17,7 +25,7 @@
     align-items: center;
     transform: translate(-4.2vw, 0);
     gap: 3.9vw;
-    margin: 0 0 4.4vw;
+    margin: 0;
     font-size: clamp(20px, 2.9vw, 56px);
     font-style: normal;
     font-weight: 700;
@@ -139,6 +147,8 @@
       top: unset;
       bottom: 32px;
       left: 50%;
+      display: flex;
+      gap: 10px;
       width: fit-content;
       height: fit-content;
       border-radius: unset;
@@ -146,21 +156,81 @@
     }
   }
 
-  // &__bullet {
+  &__cover {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5vw;
+    height: 2.5vw;
+    transition: transform $trans-default;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    cursor: pointer;
+  }
 
+  &__bullet {
+    width: 6px;
+    height: 6px;
+    padding: 0;
+    flex-shrink: 0;
+    transition: background-color $trans-default, border $trans-default, width $trans-default, height $trans-default;
+    background-color: $color-chambray;
+    border: 1px solid $color-chambray;
+    border-radius: 50%;
+    overflow: hidden;
 
-  //   @include vp-1023 {
+    @include vp-1023 {
+      opacity: 0.4;
+    }
+  }
 
-  //   }
-  // }
+  &__cover--active &__bullet,
+  &__cover:hover &__bullet {
+    width: 100%;
+    height: 100%;
+    background-color: $color-ghost-white;
+    border: 1px solid $color-chambray-trans-50;
+    opacity: 1;
 
-  // &__bullet--active {
+    @include vp-1023 {
+      border: 1px solid $color-chambray;
+    }
+  }
 
+  &__count {
+    display: inline-flex;
+    color: $color-chambray;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
 
-  //   @include vp-1023 {
+    @include vp-1023 {
+      display: none;
+    }
+  }
 
-  //   }
-  // }
+  &__sign {
+    position: absolute;
+    left: 3.5vw;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity $trans-default;
+
+    @include vp-1023 {
+      display: none;
+    }
+  }
+
+  &__cover--active &__sign,
+  &__cover:hover &__sign {
+    opacity: 1;
+  }
 
   &__wrap {
     display: flex;
@@ -279,16 +349,20 @@
     opacity: 0;
     max-height: 0;
     overflow: hidden;
+
+    @include vp-1023 {
+      top: 30px;
+    }
   }
 
   &__cont--active {
     opacity: 1;
     max-height: 1000vh;
-    top: 0;
-    transition: opacity $trans-1000;
+    transition: opacity $trans-1000, top $trans-1000;
     overflow: visible;
 
     @include vp-1023 {
+      top: 0;
       margin: 0 0 76px;
     }
   }

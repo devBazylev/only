@@ -59,6 +59,18 @@ mixin info()
         .info__year.info__year--min!= minYear
         .info__year.info__year--max!= maxYear
         .info__pag
+          each slider, i in data
+            - const total = data.length
+            - const index = (i - 1) % total
+            - const angle = (2 * Math.PI / total) * index
+            - const radius = 13.8
+            - const x = Math.cos(angle) * radius
+            - const y = Math.sin(angle) * radius
+            - const isActive = slider.active ? 'info__cover--active' : ''
+            .info__cover(class=`info__cover--${i} ${isActive}`, style=`left: calc(50% + ${x}vw); top: calc(50% + ${y}vw);`,data-id=`${i}`)
+              +btn().info__bullet
+                span.info__count!= i + 1
+              .info__sign!= slider.title
       .info__wrap
         .info__box
           span.info__frac.info__frac--min!= "01"
@@ -73,8 +85,7 @@ mixin info()
             <svg class="info__arrow" width="10" height="14" viewBox="0 0 10 14" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M1.50012 0.750001L7.75012 7L1.50012 13.25" stroke="#42567a" stroke-width="2"/>
             </svg>
-      each slider in data
-        - const i = data.indexOf(slider)
+      each slider, i in data
         - const isActive = slider.active ? 'info__cont--active' : ''
           .info__cont(class=`info__cont--${i} ${isActive}`, data-min=`${slider.items[0].date}`, data-max=`${slider.items[slider.items.length - 1].date}`)
             .info__slider.swiper
