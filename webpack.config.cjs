@@ -10,7 +10,7 @@ module.exports = {
   context: path.resolve(__dirname, 'source'),
   mode: 'development',
   entry: {
-    main: './js/main.js',
+    main: './js/main.ts', // указываем TypeScript файл
     vendor: './js/vendor.js',
   },
   devtool: isDev ? 'source-map' : false,
@@ -18,11 +18,19 @@ module.exports = {
     filename: '[name].min.js',
     path: path.resolve(__dirname, 'build/js'),
   },
-  optimization: {
-    minimize: !isDev,
+  resolve: {
+    alias: {
+      'swiper': path.resolve(__dirname, 'source/js/vendor/swiper'),
+    },
+    extensions: ['.js', '.ts'],
   },
   module: {
     rules: [
+      {
+        test: /\.ts$/,
+        exclude: /node_modules/,
+        use: 'ts-loader',
+      },
       {
         test: /\.js$/,
         exclude: /node_modules/,
